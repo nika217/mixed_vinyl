@@ -19,8 +19,8 @@ class MixController extends AbstractController
     public function new(): Response
     {
         $mix = new VinylMix();
-        $mix->setTitle('Test title');
-        $mix->setDescription('test desc');
+        $mix->setTitle('Do you remember... Phil Collins?!');
+        $mix->setDescription('A pure mix of drummers turned singers!');
         $genres = ['pop', 'rock'];
         $mix->setGenre($genres[array_rand($genres)]);
         $mix->setTrackCount(rand(5, 20));
@@ -36,7 +36,7 @@ class MixController extends AbstractController
         ));
     }
 
-    #[Route('/mix/{id}', name: 'app_mix_show')]
+    #[Route('/mix/{slug}', name: 'app_mix_show')]
     public function show(VinylMix $mix) : Response
     {
         return $this->render('mix/show.html.twig', [
@@ -59,7 +59,7 @@ class MixController extends AbstractController
         $this->addFlash('success', 'Vote counted!');
 
         return  $this->redirectToRoute('app_mix_show', [
-            'id' => $mix->getId()
+            'id' => $mix->getSlug()
         ]);
     }
 }
