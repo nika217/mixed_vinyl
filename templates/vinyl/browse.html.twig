@@ -29,7 +29,7 @@
         <div>
             <h2 class="mt-5">Mixes</h2>
             <div class="row">
-                {% for mix in mixes %}
+                {% for mix in pager %}
                     <div class="col col-md-4">
                         <div class="mixed-vinyl-container p-3 text-center">
                             <img src="{{ mix.imageUrl(300) }}" alt="Mix album cover">
@@ -45,9 +45,10 @@
                                 slug: mix.slug
                             }) }}" class="btn btn-outline-light text-white d-block">See Details</a>
                         </div>
-
                     </div>
                 {% endfor %}
+
+                {{ pagerfanta(pager) }}
             </div>
         </div>
     </div>
