@@ -2,8 +2,7 @@
 
 namespace App\Command;
 
-use App\Service\MixRepository;
-use Psr\Cache\InvalidArgumentException;
+use App\Repository\VinylMixRepository;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -18,7 +17,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class TalkToMeCommand extends Command
 {
-    public function __construct(private readonly MixRepository $mixRepository)
+    public function __construct(private readonly VinylMixRepository $mixRepository)
     {
         parent::__construct();
     }
@@ -31,9 +30,7 @@ class TalkToMeCommand extends Command
         ;
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
+
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ mix.title }} Mix{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <a href="{{ path('app_browse') }}" class="text-decoration-none text-white icon-link-hover">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left"
+                 viewBox="0 4 16 16">
+                <path fill-rule="evenodd"
+                      d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+        </a>
+        <h1 class="d-inline me-3">{{ mix.title }}</h1>
+        <div class="row mt-5">
+            <div class="col-12 col-md-4">
+                {{ include('mix/_recordSvg.html.twig') }}
+            </div>
+            <div class="col-12 col-md-8 ps-5">
+                <h2 class="mb-4">{{ mix.trackCount }} songs <small>(genre: {{ mix.genre }})</small></h2>
+                <p>{{ mix.description }}</p>
+
+                {{ mix.votesString }} votes
+                <form action="{{ path('app_mix_vote', {id: mix.id} ) }}" method="post">
+                    <button type="submit" class="btn btn-outline-primary" name="direction" value="up">
+                        <span><i class="fa fa-thumbs-up"></i></span>
+                    </button>
+                    <button type="submit" class="btn btn-outline-danger" name="direction" value="down">
+                        <span><i class="fa fa-thumbs-down"></i></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
