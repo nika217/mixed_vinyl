@@ -10,19 +10,29 @@ use function Symfony\Component\String\u;
 class VinylController extends AbstractController
 {
     #[Route('/', name: 'vinyl')]
-    public function homePage() : Response
+    public function homePage(): Response
     {
-        return new Response('Vinyl page');
+        $tracks = [
+            ['song' => 'Music', 'number' => 1],
+            ['song' => 'Music', 'number' => 2],
+            ['song' => 'Music', 'number' => 3],
+            ['song' => 'Music', 'number' => 4],
+            ['song' => 'Music', 'number' => 5],
+            ['song' => 'Music', 'number' => 6],
+            ['song' => 'Music', 'number' => 7],
+        ];
+        return $this->render('vinyl/homepage.html.twig', [
+            'title' => 'PB & Jams',
+            'tracks' => $tracks,
+        ]);
     }
+
     #[Route('/browse/{slug}', name: 'browse')]
-    public function browse(string $slug = null) : Response
+    public function browse(string $slug = null): Response
     {
-        if ($slug)
-        {
+        if ($slug) {
             $title = u(str_replace('-', ' ', $slug))->title(true);
-        }
-        else
-        {
+        } else {
             $title = 'All Genres';
         }
 
