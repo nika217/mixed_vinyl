@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,19 +48,19 @@ class VinylController extends AbstractController
                 'title' => 'PB & Jams',
                 'trackCount' => 14,
                 'genre' => 'Rock',
-                'createdAt' => new \DateTime('2021-10-02'),
+                'createdAt' => new DateTime('2024-10-02'),
             ],
             [
                 'title' => 'Put a Hex on your Ex',
                 'trackCount' => 8,
                 'genre' => 'Heavy Metal',
-                'createdAt' => new \DateTime('2022-04-28'),
+                'createdAt' => new DateTime('2023-04-28'),
             ],
             [
                 'title' => 'Spice Grills - Summer Tunes',
                 'trackCount' => 10,
                 'genre' => 'Pop',
-                'createdAt' => new \DateTime('2019-06-20'),
+                'createdAt' => new DateTime('2024-06-20'),
             ],
         ];
     }
