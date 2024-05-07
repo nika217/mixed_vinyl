@@ -9,6 +9,7 @@
         "ext-iconv": "*",
         "amphp/http-client": "^4.2.1",
         "knplabs/knp-time-bundle": "^2.2",
+        "paragonie/sodium_compat": "^2.0",
         "symfony/asset": "7.0.*",
         "symfony/console": "7.0.*",
         "symfony/dotenv": "7.0.*",
